@@ -50,8 +50,8 @@ export default function TariffsList() {
 
   // Sort tariffs: best cards first, then regular cards
   const sortedTariffs = [...tariffs].sort((a, b) => {
-    if (a.is_best && !b.is_best) return -1;
     if (!a.is_best && b.is_best) return 1;
+    if (a.is_best && !b.is_best) return -1;
     return 0;
   });
 
@@ -64,6 +64,7 @@ export default function TariffsList() {
   // Разделяем карточки на best и обычные
   const bestCards = cardsWithUniqueKeys.filter(tariff => tariff.is_best);
   const regularCards = cardsWithUniqueKeys.filter(tariff => !tariff.is_best);
+  const reversedRegularCards = regularCards.reverse();
 
   return (
     <div className="w-full py-8 max-w-[748px]">
@@ -87,7 +88,7 @@ export default function TariffsList() {
       
       {/* Отображаем обычные карточки в grid */}
       <div className="grid grid-cols-3 gap-4 min-h-[335px]">
-        {regularCards.map((tariff) => (
+        {reversedRegularCards.map((tariff) => (
           <div 
             key={tariff.uniqueKey}
           >

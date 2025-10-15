@@ -22,14 +22,13 @@ export default function SectionMain({ manImage }: SectionMainProps) {
       return;
     }
     
-    // Здесь будет логика покупки
     setShowError(false);
     console.log('Покупка выполнена!');
   };
 
   return (
     <section id="section-main" className="w-full">
-      <h1 className="text-[32px] font-bold py-8">Выбери подходящий для себя тариф</h1>
+      <h1 className="text-[40px] font-bold py-8">Выбери подходящий для себя <span className='text-[#FDB056]'>тариф</span></h1>
       <div className="w-full flex flex-row gap-[87.27px] ">
         <Image 
           src={manImage} 
@@ -52,6 +51,7 @@ export default function SectionMain({ manImage }: SectionMainProps) {
               <CustomCheckbox 
                 checked={isAgreementChecked}
                 onChange={setIsAgreementChecked}
+                error={showError}
               />
               <p className='text-[16px] font-normal text-[#CDCDCD] max-w-[605px]'>Я согласен с{' '}
                 <Link href={'#!'} className='underline hover:text-[#FDB056] transition-colors'>
@@ -63,18 +63,21 @@ export default function SectionMain({ manImage }: SectionMainProps) {
                 </Link>
               </p>
             </label>
-            <button 
-              type='submit'
-              className='w-full h-[56px] bg-[#FDB056] max-w-[352px] text-[#191E1F] text-[20px] font-bold rounded-[8px] hover:bg-[#fdaf56c9] active:scale-[0.98] cursor-pointer transition-all'
-              onClick={handleBuyClick}
-            >
-              Купить
-            </button>
-            {showError && (
-              <div className='text-red-500 text-[14px] font-medium mt-2 text-center'>
-                вам нужно согласится с офертой
-              </div>
-            )}
+            <div className='relative'>
+              <p className={`text-xs absolute translate-y-[-15px] transition-all ${
+                  showError ? 'text-red-500' : 'text-transparent'
+                }`}
+                >
+                  вам нужно согласится с офертой
+                </p>
+                <button 
+                type='submit'
+                className='w-full h-[56px] bg-[#FDB056] max-w-[352px] text-[#191E1F] text-[20px] font-bold rounded-[8px] hover:bg-[#fdaf56c9] active:scale-[0.98] cursor-pointer transition-all mt-[10px]'
+                onClick={handleBuyClick}
+              >
+                Купить
+              </button>
+            </div>
             <p className='text-[14px] font-normal text-[#9B9B9B] leading-tight'>
               Нажимая кнопку «Купить», Пользователь соглашается на разовое списание денежных средств для получения пожизненного доступа к приложению. Пользователь соглашается, что данные кредитной/дебетовой карты будут сохранены для осуществления покупок дополнительных услуг сервиса в случае желания пользователя.
             </p>

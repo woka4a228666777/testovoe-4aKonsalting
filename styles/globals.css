@@ -26,3 +26,12 @@ body {
   animation:l4 1s infinite steps(10);
 }
 @keyframes l4 {to{transform: rotate(1turn)}}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0.3; }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}

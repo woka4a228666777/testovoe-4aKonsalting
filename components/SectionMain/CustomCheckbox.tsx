@@ -7,9 +7,10 @@ interface CustomCheckboxProps {
   onChange: (checked: boolean) => void;
   id?: string;
   name?: string;
+  error?: boolean;
 }
 
-export default function CustomCheckbox({ checked, onChange, id, name }: CustomCheckboxProps) {
+export default function CustomCheckbox({ checked, onChange, id, name, error = false }: CustomCheckboxProps) {
   const handleClick = () => {
     onChange(!checked);
   };
@@ -17,9 +18,11 @@ export default function CustomCheckbox({ checked, onChange, id, name }: CustomCh
   return (
     <div 
       className={`min-w-8 h-8 rounded-[4px] border-2 flex items-center justify-center cursor-pointer transition-colors ${
-        checked 
-          ? 'bg-transparent hover:border-gray-400 border-gray-600' 
-          : 'bg-transparent hover:border-gray-400 border-gray-600'
+        error 
+          ? 'border-red-500' 
+          : checked 
+            ? 'bg-transparent hover:border-gray-400 border-gray-600' 
+            : 'bg-transparent hover:border-gray-400 border-gray-600'
       }`}
       onClick={handleClick}
     >
