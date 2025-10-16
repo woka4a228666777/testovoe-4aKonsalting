@@ -69,7 +69,7 @@ export default function Card({
     <div 
       className={`h-full w-full rounded-[34px] bg-[#313637] flex flex-col px-[18] pt-[70px] pb-[26px] items-center gap-4 cursor-pointer transition-all duration-200 ring-2 relative ${
         isSelected ? 'ring-[#FDB056]' : 'ring-[#484D4E]'
-      }`}
+      } max-[960px]:flex-row max-[960px]:justify-between max-[630px]:gap-[50px] max-[960px]:items-center max-[960px]:py-[30px] max-[960px]:px-[19px] max-[960px]:pt-[30px]`}
       onClick={onSelect}
     >
       {/* Discount badge */}
@@ -80,16 +80,18 @@ export default function Card({
           -{discountPercentage}%
         </div>
       )}
-      <h2 id="period" className="text-[26px] font-medium text-white">{period}</h2>
-      <div className="flex flex-col items-center gap-3 mt-[30px]">
-              <p id="price" className={`text-[50px] font-semibold text-nowrap leading-[50%] transition-all duration-500 ${
-                hasExpired ? 'line-through text-[#919191] scale-90' : 'text-white text-[24px] scale-100'
-              }`}>{price} ₽</p>
-              <p id="full_price" className={`text-[24px] font-normal leading-[120%] self-end transition-all duration-500 ${
-                hasExpired ? 'text-white scale-120' : ' line-through text-[#919191] scale-100'
-              }`}>{full_price} ₽</p>
-            </div>
-      <p id="text" className="text-white mt-[50px] text-[16px] font-normal self-start">{text}</p>
+      <div className="flex flex-col items-center gap-5 max-[960px]:gap-2">
+        <h2 id="period" className="text-[26px] font-medium text-white">{period}</h2>
+        <div className="flex flex-col items-center gap-3 mt-[30px] max-[960px]:mt-0">
+          <p id="price" className={`text-[50px] font-semibold text-nowrap leading-[50%] transition-all duration-500 ${
+            hasExpired ? 'line-through text-[#919191] scale-90' : 'text-white text-[24px] scale-100'
+          }`}>{price} ₽</p>
+          <p id="full_price" className={`text-[24px] font-normal leading-[120%] self-end transition-all duration-500 ${
+            hasExpired ? 'text-white scale-120' : ' line-through text-[#919191] scale-100'
+          }`}>{full_price} ₽</p>
+        </div>
+      </div>
+      <p id="text" className="text-white mt-[50px] text-[16px] font-normal self-start max-[960px]:max-w-[171px]">{text}</p>
     </div>
   );
 }

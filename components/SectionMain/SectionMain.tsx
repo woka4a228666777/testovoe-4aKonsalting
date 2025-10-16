@@ -29,13 +29,13 @@ export default function SectionMain({ manImage }: SectionMainProps) {
   return (
     <section id="section-main" className="w-full">
       <h1 className="text-[40px] font-bold py-8">Выбери подходящий для себя <span className='text-[#FDB056]'>тариф</span></h1>
-      <div className="w-full flex flex-row gap-[87.27px] ">
+      <div className="w-full flex flex-row gap-[87.27px] max-[960px]:flex-col max-[960px]:items-center">
         <Image 
           src={manImage} 
           alt="man" 
           className="w-[35%] h-auto max-w-[380.73px] object-contain"
         />
-        <div className='flex flex-col items-start'>
+        <div className='flex flex-col items-start max-[960px]:items-center'>
           <TariffsList />
           <div className='flex flex-row gap-2 bg-[#2D3233] py-[18px] px-[20px] rounded-[20px]'>
             <svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@ export default function SectionMain({ manImage }: SectionMainProps) {
                 </p>
                 <button 
                 type='submit'
-                className='w-full h-[56px] bg-[#FDB056] max-w-[352px] text-[#191E1F] text-[20px] font-bold rounded-[8px] hover:bg-[#fdaf56c9] active:scale-[0.98] cursor-pointer transition-all mt-[10px]'
+                className='w-full h-[56px] bg-[#FDB056] max-w-[352px] text-[#191E1F] text-[20px] font-bold rounded-[8px] hover:bg-[#fdaf56c9] active:scale-[0.98] cursor-pointer transition-all mt-[10px] max-[960px]:max-w-full'
                 onClick={handleBuyClick}
               >
                 Купить

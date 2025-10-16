@@ -87,7 +87,7 @@ export default function TariffsList() {
       ))}
       
       {/* Отображаем обычные карточки в grid */}
-      <div className="grid grid-cols-3 gap-4 min-h-[335px]">
+      <div className="grid grid-cols-3 gap-4 min-h-[335px] max-[960px]:grid-cols-1">
         {reversedRegularCards.map((tariff) => (
           <div 
             key={tariff.uniqueKey}

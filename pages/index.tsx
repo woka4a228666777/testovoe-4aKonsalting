@@ -13,7 +13,7 @@ export default function Home() {
         <meta name="description" content="Успейте открыть пробную неделю" />
       </Head>
       <Header />
-      <main className="w-full max-w-[1216px] mx-auto pb-[150px]">        
+      <main className="w-full max-w-[1216px] mx-auto pb-[150px] max-[1248px]:px-[16px]">
         <SectionMain manImage={ManImg} />
       </main>
     </>
